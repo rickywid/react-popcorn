@@ -12,7 +12,7 @@ import NowPlaying from './components/common/nowPlaying';
 
 export default (
 
-	<Route path="/react-popcorn/" component={App}>
+	<Route path="/react-popcorn" component={App}>
 
 		<IndexRoute component={Index} />
 		<Route path="/about" component={About} />

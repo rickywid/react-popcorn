@@ -54,7 +54,7 @@ export function addMovieToPlaylist(id){
 
 	return dispatch => {
 		return axios.get(`${url}movie/${id}?language=en-US&api_key=${api}`).then(movie => {
-			addMovieToPlaylistSuccess(movie);
+			dispatch(addMovieToPlaylistSuccess(movie));
 		}).catch(error => {
 			throw(error);
 		});		

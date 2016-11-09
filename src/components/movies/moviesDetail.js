@@ -25,7 +25,9 @@ class MoviesDetail extends Component {
 	}
 
 	componentDidMount(){
-		
+	
+		console.log('movie detail called')
+
 		axios.get(`https://api.themoviedb.org/3/movie/${this.props.params.id}?api_key=9094bd89b4b922c0b131a32e1a1be836`).then(data=>{
 			this.setState({ id: data.data.id });
 			this.setState({ title: data.data.title });
@@ -65,35 +67,35 @@ class MoviesDetail extends Component {
 			<div className="row">
 
 				<div className="col s4">
-<img className="responsive-img" src={this.state.poster} />
-
+					<img className="responsive-img" src={this.state.poster} />
 				</div>
 
 				<div className="col s8 teal lighten-5 z-depth-4">
-				<div className="movie-detail-card">
-<h1 className="movie-detail-title">{this.state.title}</h1>
-					<hr/>
+					<div className="movie-detail-card">
+						<h1 className="movie-detail-title">{this.state.title}</h1>
+						<hr/>
 
-				<p>{this.state.overview}</p>
+						<p>{this.state.overview}</p>
 
 				
 
-				<h6>Runtime: {this.state.runtime}</h6>
-				
-				<h6>Starring:</h6>
-				<ul>
-					{this.state.cast.map((cast, index) =>{
+						<h6>Runtime: {this.state.runtime}</h6>
+						
+						<h6>Starring:</h6>
+						<ul>
+							{this.state.cast.map((cast, index) =>{
 								return <li key={index}>{cast.name}</li>;
 							})}
-					
+							
 						</ul>
-				<ul>
-					{this.state.genre.map(data=>{
-						return <li>{data}</li>;
-					})}
-				</ul>
-				<a href={this.state.trailer} target="_blank" className="waves-effect waves-light btn trailer-btn">Watch Trailer</a>
-				<a onClick={this.addMovieToPlaylist.bind(this)} className="waves-effect waves-light btn red lighten-1 playlist-btn">Add To Playlist</a>
+						<ul>
+							{this.state.genre.map(data=>{
+								return <li>{data}</li>;
+							})}
+						</ul>
+
+						<a href={this.state.trailer} target="_blank" className="waves-effect waves-light btn trailer-btn">Watch Trailer</a>
+						<a onClick={this.addMovieToPlaylist.bind(this)} className="waves-effect waves-light btn red lighten-1 playlist-btn">Add To Playlist</a>
 
 				</div>
 	

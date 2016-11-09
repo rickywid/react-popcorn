@@ -1,14 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
-const Playlist = () => {
-	return (
+class Playlist extends Component {
 	
-		<div>
-			<h1>About</h1>
-		</div>
+	componentDidMount(){
+		console.log('playlist called')
+	}
 
+	renderPlaylist(movie){
+		return <li>{movie.title}</li>
+	}
 
-	)
+	render(){
+		return (
+
+			<div>
+				<h1>Playlist</h1>
+				<ul>
+				{this.props.playlist.map(this.renderPlaylist)}
+				</ul>
+			</div>
+
+		)
+	}
 }
 
-export default Playlist;
+function mapStateToProps(state){
+	return ({ playlist: state.addMovieToPlaylist});
+}
+
+export default connect(mapStateToProps, null)(Playlist);

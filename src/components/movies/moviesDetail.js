@@ -54,6 +54,7 @@ class MoviesDetail extends Component {
 	}
 
 	addMovieToPlaylist(){
+		console.log('click event called!!!')
 
 		this.props.addToPlaylist(this.props.params.id);
 
@@ -61,29 +62,54 @@ class MoviesDetail extends Component {
 
 	render(){
 		return (
-			<div>
-				<img height="400" src={this.state.poster} />
-				<h1>{this.state.title}</h1>
+			<div className="row">
+
+				<div className="col s4">
+<img className="responsive-img" src={this.state.poster} />
+
+				</div>
+
+				<div className="col s8 teal lighten-5 z-depth-4">
+				<div className="movie-detail-card">
+<h1 className="movie-detail-title">{this.state.title}</h1>
+					<hr/>
+
 				<p>{this.state.overview}</p>
+
 				
-				<a href={this.state.trailer} target="_blank" className="waves-effect waves-light btn">Watch Trailer</a>
-				<ul>
-					{this.state.genre.map(data=>{
-						return <li>{data}</li>;
-					})}
-				</ul>
-				  <a className="btn-floating btn-large waves-effect waves-light red" onClick={this.addMovieToPlaylist.bind(this)}><i className="material-icons">add</i></a>
 
-				<h5>Runtime: {this.state.runtime}</h5>
-
+				<h6>Runtime: {this.state.runtime}</h6>
+				
+				<h6>Starring:</h6>
 				<ul>
 					{this.state.cast.map((cast, index) =>{
 								return <li key={index}>{cast.name}</li>;
 							})}
 					
 						</ul>
-						
-					</div>
+				<ul>
+					{this.state.genre.map(data=>{
+						return <li>{data}</li>;
+					})}
+				</ul>
+				<a href={this.state.trailer} target="_blank" className="waves-effect waves-light btn trailer-btn">Watch Trailer</a>
+				<a onClick={this.addMovieToPlaylist.bind(this)} className="waves-effect waves-light btn red lighten-1 playlist-btn">Add To Playlist</a>
+
+				</div>
+	
+				</div>
+				
+			</div>
+
+
+
+
+
+
+
+
+
+
 					
 				)
 			}

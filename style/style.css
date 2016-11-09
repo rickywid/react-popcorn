@@ -1,0 +1,23 @@
+/*global*/
+ul li {
+	display: inline-block;
+	margin-right: 10px;
+}
+
+/*movies-details page*/
+
+.movie-detail-title {
+	margin: 0;
+}
+.movie-detail-card {
+	padding: 25px;
+}
+
+.trailer-btn {
+	margin-right: 10px;
+}
+
+/*popular movies page*/
+.popular-movies-col {
+	margin-bottom: 17px;
+}

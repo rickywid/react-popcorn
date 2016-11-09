@@ -6,8 +6,8 @@ class PopularMovies extends Component {
 		
 		return movies.map(movie => {
 			return (
-				<div className="col s3">
-					<a href={`/movie/${movie.id}`}><img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} height="300" /></a>
+				<div className="col s3 popular-movies-col">
+					<a href={`/movie/${movie.id}`}><img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} className="responsive-img" /></a>
 				</div>
 			)
 		});

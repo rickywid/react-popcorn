@@ -42,7 +42,8 @@ export function searchMovies(movie){
 }
 
 function addMovieToPlaylistSuccess(id){
-	console.log(id);
+			console.log('action called!!!')
+
 	return {
 		type: types.ADD_MOVIE_TO_PLAYLIST,
 		payload: id
@@ -50,6 +51,7 @@ function addMovieToPlaylistSuccess(id){
 }
 
 export function addMovieToPlaylist(id){
+
 	return dispatch => {
 		return axios.get(`${url}movie/${id}?language=en-US&api_key=${api}`).then(movie => {
 			addMovieToPlaylistSuccess(movie);
@@ -60,6 +62,9 @@ export function addMovieToPlaylist(id){
 }
 
 function getNowPlayingSuccess(movies){
+	
+		console.log('action called!!!')
+
 	return {
 		type: types.GET_NOW_PLAYING,
 		payload: movies.data.results
@@ -67,6 +72,7 @@ function getNowPlayingSuccess(movies){
 }
 
 export function getNowPlaying(){
+
 	return dispatch => {
 		return axios.get(`${url}movie/now_playing?page=1&language=en-US&api_key=${api}`).then(movies => {
 			getNowPlayingSuccess(movies);

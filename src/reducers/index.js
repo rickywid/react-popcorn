@@ -10,7 +10,6 @@ const rootReducer = combineReducers({
 	searchMovies: searchMoviesReducer,
 	movieDetail: movieDetailReducer,
 	addMovieToPlaylist: addMovieToPlaylistReducer
-
   
 });
 

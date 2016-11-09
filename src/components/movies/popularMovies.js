@@ -5,7 +5,11 @@ class PopularMovies extends Component {
 	renderPopularList(movies){
 		
 		return movies.map(movie => {
-			return <li><a href={`/movie/${movie.id}`}>{movie.title}</a></li>
+			return (
+				<div className="col s3">
+					<a href={`/movie/${movie.id}`}><img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} height="300" /></a>
+				</div>
+			)
 		});
 	}
 	
@@ -14,14 +18,13 @@ class PopularMovies extends Component {
 
 		return (
 
-			<div className="col s5">
-				<h5>Popular Movies</h5>
-				<ul>
 
+				<div className="row">
+					<h5>Popular Movies</h5>
 					{this.props.popularMovies.map(this.renderPopularList)}
 					
-				</ul>
-			</div>	
+				</div>
+
 
 		)
 	}

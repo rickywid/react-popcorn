@@ -19,9 +19,8 @@ class Index extends Component {
 		return (
 
 		<div className="row">
-			{console.log(this.props)}
+			
 			<PopularMovies popularMovies={this.props.popularMovies}/>
-			<SearchResults results={this.props.searchMovies} />
 
 		</div>			
 
@@ -37,7 +36,6 @@ function mapStateToProps(state){
 
 	return ({ 
 		popularMovies: state.popularMovies, 
-		searchMovies: state.searchMovies
 	});
 }
 

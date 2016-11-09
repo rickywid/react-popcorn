@@ -25,7 +25,6 @@ export function getPopularMovies() {
 
 
 function searchMoviesSuccess(film){
-	
 	return {
 		type: types.SEARCH_MOVIES_RESULTS,
 		payload: film.data.results

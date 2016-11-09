@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 
+import { connect } from 'react-redux';
+
 class SearchResults extends Component {
 
 	renderSearchResults(results){
 		return results.map(result=>{
 			return (
-				<li><a href="#">{result.title}</a></li> 
+
+				<div className="col s3">
+					<a href={`/movie/${result.id}`}><img src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`} height="300" /></a>
+				</div>
 			)
 		})
 	}
@@ -13,15 +18,21 @@ class SearchResults extends Component {
 	render(){
 		return (
 
-			<div className="col s7">
-				<ul>
-					
-					{this.props.results.map(this.renderSearchResults)}
-				</ul>
+			<div className="row">
+				<h5>Searc Results</h5>
+					{this.props.searchResults.map(this.renderSearchResults)}
+				
 			</div>
 			
 		)
 	}
 }
 
-export default SearchResults;
+function mapStateToProps(state){
+
+	return ({ 
+		searchResults: state.searchMovies
+	});
+}
+
+export default connect(mapStateToProps, null)(SearchResults);

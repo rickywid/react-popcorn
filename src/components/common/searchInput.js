@@ -1,5 +1,5 @@
   import React, { Component } from 'react';
-
+  import { browserHistory } from 'react-router';
   import { connect } from 'react-redux';
   import { bindActionCreators } from 'redux';
   import { searchMovies } from '../../actions/movieActions';
@@ -16,8 +16,9 @@
 
     onSubmit(e){
       e.preventDefault();
-
       this.props.searchMovies(this.state.input);
+      browserHistory.push('/search');
+
     }
 
     onChangeHandler(e){

@@ -1,9 +1,29 @@
 import React, { Component } from 'react';
 
-export default class App extends Component {
+//components
+import Nav from './common/nav';
+import SearchInput from './common/searchInput';
+
+
+// root (/)
+class App extends Component {
+
+
   render() {
     return (
-      <div>React simple starter</div>
+      
+    <div>
+ 
+		<Nav />
+		<SearchInput />	
+
+		{this.props.children}
+
+
+    </div>  
+
     );
   }
 }
+
+export default App;

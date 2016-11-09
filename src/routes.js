@@ -8,6 +8,7 @@ import Playlist from './components/common/playlist';
 import Contact from './components/common/contact';
 import Index from './components/common/index';
 import SearchResults from './components/movies/searchResults';
+import NowPlaying from './components/common/nowPlaying';
 
 export default (
 
@@ -19,6 +20,7 @@ export default (
 		<Route path="/contact" component={Contact} />
 		<Route path="/movie/:id" component={MoviesDetail} />
 		<Route path="/search" component={SearchResults} />
+		<Route path="/nowplaying" component={NowPlaying} />
 
 
 	</Route>

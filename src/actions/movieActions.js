@@ -61,24 +61,3 @@ export function addMovieToPlaylist(id){
 	}		
 }
 
-function getNowPlayingSuccess(movies){
-	
-		console.log('action called!!!')
-
-	return {
-		type: types.GET_NOW_PLAYING,
-		payload: movies.data.results
-	}
-}
-
-export function getNowPlaying(){
-
-	return dispatch => {
-		return axios.get(`${url}movie/now_playing?page=1&language=en-US&api_key=${api}`).then(movies => {
-			getNowPlayingSuccess(movies);
-		}).catch(error => {
-			throw(error);
-		});		
-	}		
-}
-

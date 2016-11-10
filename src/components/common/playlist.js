@@ -1,21 +1,56 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { removePlaylistItemSuccess } from '../../actions/movieActions';
+
 
 class Playlist extends Component {
+	constructor(props){
+		super(props);
+
+		this.state=({ id: '' });
+
+		this.renderPlaylist = this.renderPlaylist.bind(this);
+	}
+
+	removeMovieClick(id){
+		
+		this.props.removePlaylistItemSuccess(id)
+	}
 
 	renderPlaylist(movie){
-		return <li>{movie.title}</li>
+		
+		return (
+			<li className="collection-item avatar">
+		      <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" className="circle" />
+		      <span className="title">{movie.title}</span> <br />
+		      	<button onClick={()=>{this.removeMovieClick(movie.id)}} className="waves-effect waves-light btn">Remove</button>
+		      <a href="#!" className="secondary-content"><i className="material-icons">grade</i></a>
+		    </li>
+		)
+	}
+
+	displayPlaylist(){
+
+		if(!this.props.playlist.length){
+			return (
+				<h2>Your playlist is empty</h2>
+			)
+		} else {
+			return (
+				<ul className="collection">
+					{this.props.playlist.map(this.renderPlaylist)}
+				</ul>	
+			)
+		}
 	}
 
 	render(){
 		return (
 
 			<div>
-				<h1>Playlist</h1>
-				<ul>
-					{console.log(this.props.playlist)}
-				</ul>
+				{this.displayPlaylist()}
+				{console.log(this.props.playlist)}
 			</div>
 
 		)
@@ -26,4 +61,8 @@ function mapStateToProps(state){
 	return ({ playlist: state.addMovieToPlaylist});
 }
 
-export default connect(mapStateToProps, null)(Playlist);
+function mapDispatchToProps(dispatch){
+	return bindActionCreators({ removePlaylistItemSuccess }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Playlist);

@@ -26,8 +26,6 @@ class MoviesDetail extends Component {
 
 	componentDidMount(){
 	
-		console.log('movie detail called')
-
 		axios.get(`https://api.themoviedb.org/3/movie/${this.props.params.id}?api_key=9094bd89b4b922c0b131a32e1a1be836`).then(data=>{
 			this.setState({ id: data.data.id });
 			this.setState({ title: data.data.title });
@@ -56,7 +54,6 @@ class MoviesDetail extends Component {
 	}
 
 	addMovieToPlaylist(){
-		console.log('click event called!!!')
 
 		this.props.addToPlaylist(this.props.params.id);
 
@@ -82,15 +79,15 @@ class MoviesDetail extends Component {
 						<h6>Runtime: {this.state.runtime}</h6>
 						
 						<h6>Starring:</h6>
-						<ul>
+						<ul className="casts">
 							{this.state.cast.map((cast, index) =>{
-								return <li key={index}>{cast.name}</li>;
+								return <li id="cast-member" key={index}>{cast.name}</li>;
 							})}
 							
 						</ul>
-						<ul>
-							{this.state.genre.map(data=>{
-								return <li>{data}</li>;
+						<ul className="genres">
+							{this.state.genre.map((data, index)=>{
+								return <li id="genre" key={index}>{data}</li>;
 							})}
 						</ul>
 
@@ -98,9 +95,8 @@ class MoviesDetail extends Component {
 						<a onClick={this.addMovieToPlaylist.bind(this)} className="waves-effect waves-light btn red lighten-1 playlist-btn">Add To Playlist</a>
 
 				</div>
-	
+
 				</div>
-				
 			</div>
 
 

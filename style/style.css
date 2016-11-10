@@ -1,5 +1,6 @@
 /*global*/
-ul li {
+ul > li#cast-member,
+ul > li#genre {
 	display: inline-block;
 	margin-right: 10px;
 }
@@ -20,4 +21,11 @@ ul li {
 /*popular movies page*/
 .popular-movies-col {
 	margin-bottom: 17px;
+}
+
+/*Playlist page*/
+.icon-vertical-align {
+	vertical-align: middle;
+	color: #f4ff81 ;
+	margin-left: 10px;
 }

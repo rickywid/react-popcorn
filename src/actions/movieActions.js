@@ -42,8 +42,6 @@ export function searchMovies(movie){
 }
 
 function addMovieToPlaylistSuccess(id){
-			console.log('action called!!!')
-
 	return {
 		type: types.ADD_MOVIE_TO_PLAYLIST,
 		payload: id
@@ -60,4 +58,12 @@ export function addMovieToPlaylist(id){
 		});		
 	}		
 }
+
+export function removePlaylistItemSuccess(id){
+	return {
+		type: types.REMOVE_PLAYLIST_ITEM,
+		payload: id
+	}
+}
+
 

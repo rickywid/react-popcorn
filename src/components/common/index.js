@@ -21,11 +21,11 @@ class Index extends Component {
 	}
 
 	renderTopRatedList(movie){
-		return movie.map( data=><a href={`/movie/${data.id}`} className="collection-item"><span className="new badge">{data.vote_average}</span>{data.title}</a>)
+		return movie.map( data=><Link to={`/movie/${data.id}`} className="collection-item"><span className="new badge">{data.vote_average}</span>{data.title}</Link>)
 	}
 
 	renderUpcomingList(movie){
-		return movie.map( data=><a href={`/movie/${data.id}`} className="collection-item"><span className="badge"></span>{data.title}</a>)
+		return movie.map( data=><Link to={`/movie/${data.id}`} className="collection-item"><span className="badge"></span>{data.title}</Link>)
 	}	
 
 	render(){

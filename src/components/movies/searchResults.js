@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
 class SearchResults extends Component {
 
@@ -10,9 +11,9 @@ class SearchResults extends Component {
 
 				<div className="col s3 popular-movies-col">
 					{ result.poster_path ? 
-						<a href={`/movie/${result.id}`}>
+						<Link to={`/movie/${result.id}`}>
 							<img src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`} className="responsive-img" />
-						</a> : 
+						</Link> : 
 						<img src="http://placehold.it/246x350" className="responsive-img"/>
 					}
 				</div>

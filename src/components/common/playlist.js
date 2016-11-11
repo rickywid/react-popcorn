@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { removePlaylistItemSuccess } from '../../actions/movieActions';
 import toastr from 'toastr';
+import { Link } from 'react-router';
 
 class Playlist extends Component {
 	constructor(props){
@@ -22,13 +23,12 @@ class Playlist extends Component {
 	renderPlaylist(movie){
 		
 		return (
-			<li className="collection-item avatar">
-		      <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" className="circle" />
-		      <span className="title">{movie.title}</span> <br />
-		      	<button onClick={()=>{this.removeMovieClick(movie.id)}} className="waves-effect waves-light btn">Show Detail</button>
-		      	<button onClick={()=>{this.removeMovieClick(movie.id)}} className="waves-effect waves-light btn">Remove</button>
-		      <a href="#!" className="secondary-content"><i className="material-icons">grade</i></a>
-		    </li>
+			<div className="col s3 playlist-col">
+		      	<img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" className="responsive-img" />
+		      	<Link to={`/movie/${movie.id}`} className="waves-effect waves-light btn playlist-btn">View</Link>
+		      	<button onClick={()=>{this.removeMovieClick(movie.id)}} className="waves-effect waves-light btn playlist-btn">Remove</button>
+		    </div>
+		    
 		)
 	}
 
@@ -36,13 +36,13 @@ class Playlist extends Component {
 
 		if(!this.props.playlist.length){
 			return (
-				<h2>Your playlist is empty</h2>
+				<p>Oop...Your playlist is currently empty</p>
 			)
 		} else {
 			return (
-				<ul className="collection">
+				<div className="row">
 					{this.props.playlist.map(this.renderPlaylist)}
-				</ul>	
+				</div>	
 			)
 		}
 	}
@@ -51,7 +51,7 @@ class Playlist extends Component {
 		return (
 
 			<div>
-				<h5>{this.props.playlist.length}</h5>
+				<h5>Playlist({this.props.playlist.length})</h5>
 				{this.displayPlaylist()}
 				{console.log(this.props.playlist)}
 			</div>

@@ -5,7 +5,12 @@ ul > li#genre {
 	margin-right: 10px;
 }
 
+h6 { color: #ee6e73; font-weight: bold; }
+
 hr { opacity: 0.3; }
+
+input[type=text] { height: 2em; font-size: 4em;}
+.input-field label { font-weight: bold;}
 
 /*movies-details page*/
 
@@ -24,7 +29,16 @@ hr { opacity: 0.3; }
 	margin-left: 10px;
 }
 
+.playlist-col { text-align: center; margin-bottom: 30px; }
+.playlist-btn { margin: 6px; }
+
+.modal .modal-content { padding: 0; background-color: black;}
+.modal-open .modal{ overflow-y: hidden; background-color: black; width: 100%;}
+.modal-dialog {width: 640px;}
+
+/*.modal-dialog{ margin: 0;}*/
+
 /*index page*/
-span.badge.new:after {
-	display: none;
-}
+span.badge.new:after { 	display: none; }
+.collection a.collection-item { font-size: 85%; }
+.collection .collection-item { padding: 5px 20px;}

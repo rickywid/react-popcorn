@@ -33,7 +33,6 @@
           <form className="col s12" onSubmit={this.onSubmit.bind(this)}>
             <div className="row">
               <div className="input-field col s12">
-                <i className="material-icons prefix">search_circle</i>
                 <input id="icon_prefix" type="text" className="validate" onChange={this.onChangeHandler.bind(this)} />
                 <label htmlFor="icon_prefix">Search</label>
               </div>

@@ -100,7 +100,23 @@ class MoviesDetail extends Component {
 						</ul>
 
 						<a href={this.state.trailer} target="_blank" className="waves-effect waves-light btn trailer-btn">Watch Trailer</a>
-						<a onClick={this.addMovieToPlaylist.bind(this)} className="waves-effect waves-light btn red lighten-1 playlist-btn">Add To Playlist</a>
+						<a onClick={this.addMovieToPlaylist.bind(this)} className="waves-effect waves-light btn red lighten-1">Add To Playlist</a>
+
+
+
+						<button type="button" className="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+							Launch demo modal
+						</button>
+
+<div className="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div className="modal-dialog" role="document">
+    <div className="modal-content">
+      <iframe width="640" height="360" src="https://www.youtube.com/embed/ucTQ2C5CFFQ?rel=0?autoplay=0" frameborder="0" allowfullscreen></iframe>
+            <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>					
 
 				</div>
 

@@ -13,10 +13,12 @@ export default function (state=initialState.playlist, action){
 		
 		case types.REMOVE_PLAYLIST_ITEM :
 	
-			console.log(state)
+			//console.log(state)
 			console.log(action.payload)
+			console.log('---');
+			state.map(id => {console.log(id.id) })
 	
-			return	state.filter(movie =>{ movie.id !== action.payload });
+			return	state.filter(movie => movie.id !== action.payload );
 			
 
 		}

@@ -8,20 +8,28 @@ class SearchResults extends Component {
 		return results.map(result=>{
 			return (
 
-				<div className="col s3">
-					<a href={`/movie/${result.id}`}><img src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`} height="300" /></a>
+				<div className="col s3 popular-movies-col">
+					{ result.poster_path ? 
+						<a href={`/movie/${result.id}`}>
+							<img src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`} className="responsive-img" />
+						</a> : 
+						<img src="http://placehold.it/246x350" className="responsive-img"/>
+					}
 				</div>
 			)
 		})
 	}
 
 	render(){
+		
+		
+		const paramsName = this.props.params.name
+
 		return (
 
 			<div className="row">
-				<h5>Searc Results</h5>
 					{this.props.searchResults.map(this.renderSearchResults)}
-				
+					
 			</div>
 			
 		)
@@ -29,9 +37,10 @@ class SearchResults extends Component {
 }
 
 function mapStateToProps(state){
-
+	
 	return ({ 
 		searchResults: state.searchMovies
+		
 	});
 }
 

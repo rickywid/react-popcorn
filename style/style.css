@@ -5,27 +5,26 @@ ul > li#genre {
 	margin-right: 10px;
 }
 
+hr { opacity: 0.3; }
+
 /*movies-details page*/
 
-.movie-detail-title {
-	margin: 0;
-}
-.movie-detail-card {
-	padding: 25px;
-}
-
-.trailer-btn {
-	margin-right: 10px;
-}
+.movie-detail-title { margin: 0; }
+.movie-detail-card { padding: 25px; }
+.rating{ vertical-align: middle }
+.trailer-btn { margin-right: 10px; }
 
 /*popular movies page*/
-.popular-movies-col {
-	margin-bottom: 17px;
-}
+.popular-movies-col { margin-bottom: 17px; }
 
 /*Playlist page*/
 .icon-vertical-align {
 	vertical-align: middle;
 	color: #f4ff81 ;
 	margin-left: 10px;
+}
+
+/*index page*/
+span.badge.new:after {
+	display: none;
 }

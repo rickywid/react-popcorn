@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { removePlaylistItemSuccess } from '../../actions/movieActions';
-
+import toastr from 'toastr';
 
 class Playlist extends Component {
 	constructor(props){
@@ -16,6 +16,7 @@ class Playlist extends Component {
 	removeMovieClick(id){
 		
 		this.props.removePlaylistItemSuccess(id)
+		toastr.success('movie removed');
 	}
 
 	renderPlaylist(movie){
@@ -24,6 +25,7 @@ class Playlist extends Component {
 			<li className="collection-item avatar">
 		      <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" className="circle" />
 		      <span className="title">{movie.title}</span> <br />
+		      	<button onClick={()=>{this.removeMovieClick(movie.id)}} className="waves-effect waves-light btn">Show Detail</button>
 		      	<button onClick={()=>{this.removeMovieClick(movie.id)}} className="waves-effect waves-light btn">Remove</button>
 		      <a href="#!" className="secondary-content"><i className="material-icons">grade</i></a>
 		    </li>
@@ -49,6 +51,7 @@ class Playlist extends Component {
 		return (
 
 			<div>
+				<h5>{this.props.playlist.length}</h5>
 				{this.displayPlaylist()}
 				{console.log(this.props.playlist)}
 			</div>

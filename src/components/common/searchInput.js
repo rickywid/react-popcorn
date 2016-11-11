@@ -17,7 +17,7 @@
     onSubmit(e){
       e.preventDefault();
       this.props.searchMovies(this.state.input);
-      browserHistory.push('/search');
+      browserHistory.push(`/search/${this.state.input}`);
 
     }
 

@@ -20,7 +20,9 @@ class MoviesDetail extends Component {
 				trailer: '',
 				overview: '',
 				genre: [],
-				runtime: '' 
+				runtime: '',
+				rating: '',
+				releaseDate: ''
 			}
 	}
 
@@ -31,7 +33,9 @@ class MoviesDetail extends Component {
 			this.setState({ title: data.data.title });
 			this.setState({ overview: data.data.overview });
 			this.setState({ runtime: data.data.runtime });
-			this.setState({ poster: `https://image.tmdb.org/t/p/w500/${data.data.poster_path}` })
+			this.setState({ poster: `https://image.tmdb.org/t/p/w500/${data.data.poster_path}` });
+			this.setState({ rating: data.data.vote_average });
+			this.setState({ releaseDate: data.data.release_date });
 			
 			let genreArray = [];
 
@@ -56,6 +60,7 @@ class MoviesDetail extends Component {
 	addMovieToPlaylist(){
 
 		this.props.addToPlaylist(this.props.params.id);
+		toastr.success('Movie Added To Playlist')
 
 	}
 
@@ -70,12 +75,15 @@ class MoviesDetail extends Component {
 				<div className="col s8 teal lighten-5 z-depth-4">
 					<div className="movie-detail-card">
 						<h1 className="movie-detail-title">{this.state.title}</h1>
+						  <div className="chip">
+    {this.state.rating}
+    <i className="small material-icons">star</i>
+  </div>
 						<hr/>
 
 						<p>{this.state.overview}</p>
-
-				
-
+			
+						<p>Release: {this.state.releaseDate}</p>
 						<h6>Runtime: {this.state.runtime}</h6>
 						
 						<h6>Starring:</h6>

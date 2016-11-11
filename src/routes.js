@@ -19,7 +19,7 @@ export default (
 		<Route path="/playlist" component={Playlist} />
 		<Route path="/contact" component={Contact} />
 		<Route path="/movie/:id" component={MoviesDetail} />
-		<Route path="/search" component={SearchResults} />
+		<Route path="/search/:name" component={SearchResults} />
 
 
 	</Route>

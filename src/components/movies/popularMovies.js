@@ -20,8 +20,9 @@ class PopularMovies extends Component {
 		return (
 
 
-				<div className="row">
-					<h5>Popular Movies</h5>
+				<div>
+					<h6>Popular Movies</h6>
+					<hr/>
 					{this.props.popularMovies.map(this.renderPopularList)}
 					
 				</div>

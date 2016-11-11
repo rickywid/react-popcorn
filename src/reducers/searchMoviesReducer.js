@@ -7,9 +7,8 @@ export default function movies(state=initialState.searchMovies, action){
 
 		case types.SEARCH_MOVIES_RESULTS:
 			
-			return [action.payload];
-			
-		}
+			return [action.payload]
+	}
 
 	return state;
 }

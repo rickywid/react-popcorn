@@ -42,3 +42,8 @@ input[type=text] { height: 2em; font-size: 4em;}
 span.badge.new:after { 	display: none; }
 .collection a.collection-item { font-size: 85%; }
 .collection .collection-item { padding: 5px 20px;}
+
+/*search results*/
+img.height-350 {
+	height: 350px;
+}

@@ -12,7 +12,7 @@ class SearchResults extends Component {
 				<div className="col s3 popular-movies-col">
 					{ result.poster_path ? 
 						<Link to={`/movie/${result.id}`}>
-							<img src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`} className="responsive-img" />
+							<img src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`} className="responsive-img height-350" />
 						</Link> : 
 						<img src="http://placehold.it/246x350" className="responsive-img"/>
 					}

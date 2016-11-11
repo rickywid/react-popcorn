@@ -65,6 +65,10 @@ class MoviesDetail extends Component {
 	}
 
 	render(){
+$("#myModal").on('hidden.bs.modal', function (e) {
+    $("#myModal iframe").attr("src", $("#myModal iframe").attr("src"));
+});
+
 		return (
 			<div className="row">
 
@@ -99,14 +103,11 @@ class MoviesDetail extends Component {
 							})}
 						</ul>
 
-						<a href={this.state.trailer} target="_blank" className="waves-effect waves-light btn trailer-btn">Watch Trailer</a>
+						<a type="button" className="waves-effect waves-light btn trailer-btn" data-toggle="modal" data-target="#myModal">Watch Trailer</a>
 						<a onClick={this.addMovieToPlaylist.bind(this)} className="waves-effect waves-light btn red lighten-1">Add To Playlist</a>
 
 
 
-						<button type="button" className="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-							Launch demo modal
-						</button>
 
 <div className="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div className="modal-dialog" role="document">

@@ -52,7 +52,7 @@ class MoviesDetail extends Component {
 
 		axios.get(`https://api.themoviedb.org/3/movie/${this.props.params.id}/videos?language=en-US&api_key=9094bd89b4b922c0b131a32e1a1be836`).then(data=>{
 				
-				this.setState({ trailer: `https://www.youtube.com/watch?v=${data.data.results[0].key}` })
+				this.setState({ trailer: data.data.results[0].key })
 		});		
 
 	}
@@ -65,9 +65,11 @@ class MoviesDetail extends Component {
 	}
 
 	render(){
-$("#myModal").on('hidden.bs.modal', function (e) {
-    $("#myModal iframe").attr("src", $("#myModal iframe").attr("src"));
-});
+
+		//jquery hack to stop youtube video when user closes modal
+		$("#myModal").on('hidden.bs.modal', function (e) {
+		    $("#myModal iframe").attr("src", $("#myModal iframe").attr("src"));
+		});
 
 		return (
 			<div className="row">
@@ -76,18 +78,22 @@ $("#myModal").on('hidden.bs.modal', function (e) {
 					<img className="responsive-img" src={this.state.poster} />
 				</div>
 
-				<div className="col s8 teal lighten-5 z-depth-4">
+				<div className="col s8 grey lighten-3 z-depth-4">
 					<div className="movie-detail-card">
-						<h1 className="movie-detail-title">{this.state.title}</h1>
+						<h4 className="movie-detail-title">{this.state.title}</h4>
+						<ul className="genres">
+							{this.state.genre.map((data, index)=>{
+								return <li id="genre" key={index}>{data} | </li>;
+							})}
+							<li id="release-date"> {this.state.releaseDate}</li>							
+						</ul>
 						  <div className="chip">
-    {this.state.rating}
-    <i className="small material-icons">star</i>
-  </div>
+						    	<span className="rating">{this.state.rating}</span>/10
+						  </div>
 						<hr/>
 
 						<p>{this.state.overview}</p>
 			
-						<p>Release: {this.state.releaseDate}</p>
 						<h6>Runtime: {this.state.runtime}</h6>
 						
 						<h6>Starring:</h6>
@@ -97,11 +103,7 @@ $("#myModal").on('hidden.bs.modal', function (e) {
 							})}
 							
 						</ul>
-						<ul className="genres">
-							{this.state.genre.map((data, index)=>{
-								return <li id="genre" key={index}>{data}</li>;
-							})}
-						</ul>
+
 
 						<a type="button" className="waves-effect waves-light btn trailer-btn" data-toggle="modal" data-target="#myModal">Watch Trailer</a>
 						<a onClick={this.addMovieToPlaylist.bind(this)} className="waves-effect waves-light btn red lighten-1">Add To Playlist</a>
@@ -109,37 +111,22 @@ $("#myModal").on('hidden.bs.modal', function (e) {
 
 
 
-<div className="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div className="modal-dialog" role="document">
-    <div className="modal-content">
-      <iframe width="640" height="360" src="https://www.youtube.com/embed/ucTQ2C5CFFQ?rel=0?autoplay=0" frameborder="0" allowfullscreen></iframe>
-            <div class="modal-footer">
-      </div>
-    </div>
-  </div>
-</div>					
-
-				</div>
-
+						<div className="modal fade" id="myModal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
+						  <div className="modal-dialog" role="document">
+						    <div className="modal-content">
+						      <iframe width="640" height="360" src={`https://www.youtube.com/embed/${this.state.trailer}?autoplay=0`} frameBorder="0" allowFullScreen></iframe>
+						    </div>
+						  </div>
+						</div>					
+					</div>
 				</div>
 			</div>
-
-
-
-
-
-
-
-
-
-
 					
 				)
 			}
 		}
 
 		function mapStateToProps(state, ownProps){
-		
 
 			return {
 				id: ownProps.params.id

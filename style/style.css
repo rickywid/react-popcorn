@@ -1,9 +1,5 @@
 /*global*/
-ul > li#cast-member,
-ul > li#genre {
-	display: inline-block;
-	margin-right: 10px;
-}
+
 
 h6 { color: #ee6e73; font-weight: bold; }
 
@@ -13,10 +9,16 @@ input[type=text] { height: 2em; font-size: 4em;}
 .input-field label { font-weight: bold;}
 
 /*movies-details page*/
+ul > li#cast-member,
+ul > li#release-date,
+ul > li#genre {
+	display: inline-block;
+	margin-right: 10px;
+}
 
 .movie-detail-title { margin: 0; }
 .movie-detail-card { padding: 25px; }
-.rating{ vertical-align: middle }
+.rating{ font-size: 30px; }
 .trailer-btn { margin-right: 10px; }
 
 /*popular movies page*/

@@ -2,6 +2,6 @@ export default {
 	popularMovies: [],
 	topRatedMovies: [],
 	upcomingMovies: [],
-	searchMovies: [],
+	searchMovies: { results: [], length: null },
 	playlist: []
 }

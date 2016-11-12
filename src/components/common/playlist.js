@@ -53,7 +53,7 @@ class Playlist extends Component {
 			<div>
 				<h5>Playlist({this.props.playlist.length})</h5>
 				{this.displayPlaylist()}
-				{console.log(this.props.playlist)}
+				
 			</div>
 
 		)

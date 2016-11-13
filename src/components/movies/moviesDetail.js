@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
 import { addMovieToPlaylist } from '../../actions/movieActions';
-
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import toastr from 'toastr';
+import moment from 'moment'
 
 class MoviesDetail extends Component {
 
@@ -22,12 +22,11 @@ class MoviesDetail extends Component {
 				genre: [],
 				runtime: '',
 				rating: '',
-				releaseDate: ''
-			}
+				releaseDate: ''			}
 	}
 
 	componentDidMount(){
-	
+		
 		axios.get(`https://api.themoviedb.org/3/movie/${this.props.params.id}?api_key=9094bd89b4b922c0b131a32e1a1be836`).then(data=>{
 			this.setState({ id: data.data.id });
 			this.setState({ title: data.data.title });
@@ -51,21 +50,29 @@ class MoviesDetail extends Component {
 		});
 
 		axios.get(`https://api.themoviedb.org/3/movie/${this.props.params.id}/videos?language=en-US&api_key=9094bd89b4b922c0b131a32e1a1be836`).then(data=>{
+					//console.log(data.data.results.length)
+				if(data.data.results.length > 1){
+					//console.log('no trailer')
+					this.setState({ trailer: data.data.results[0].key })
+
+
+				} else {
+					//console.log('trailer')
+					this.setState({ trailer: null })
+				}
 				
-				this.setState({ trailer: data.data.results[0].key })
 		});		
 
 	}
 
 	addMovieToPlaylist(){
 
-		this.props.addToPlaylist(this.props.params.id);
+		this.props.addToPlaylist(this.props.params.id, true);
 		toastr.success('Movie Added To Playlist')
 
 	}
 
 	render(){
-
 		//jquery hack to stop youtube video when user closes modal
 		$("#myModal").on('hidden.bs.modal', function (e) {
 		    $("#myModal iframe").attr("src", $("#myModal iframe").attr("src"));
@@ -81,32 +88,34 @@ class MoviesDetail extends Component {
 				<div className="col s8 grey lighten-3 z-depth-4">
 					<div className="movie-detail-card">
 						<h4 className="movie-detail-title">{this.state.title}</h4>
-						<ul className="genres">
+						<ul className="movie-detail-info">
 							{this.state.genre.map((data, index)=>{
-								return <li id="genre" key={index}>{data} | </li>;
+								return <li id="info" key={index}>{data}</li>;
 							})}
-							<li id="release-date"> {this.state.releaseDate}</li>							
+							<li id="info">{this.state.runtime}mins</li>
+							<li id="info"> {moment(this.state.releaseDate).format("MMM Do YYYY")}</li>							
+							<li id="info">
+							  <div className="chip">
+							    	<span className="rating">{this.state.rating}</span>/10
+							  </div>
+							</li>
 						</ul>
-						  <div className="chip">
-						    	<span className="rating">{this.state.rating}</span>/10
-						  </div>
-						<hr/>
 
+						<hr/>
+						<h6>Summary</h6>
 						<p>{this.state.overview}</p>
-			
-						<h6>Runtime: {this.state.runtime}</h6>
-						
-						<h6>Starring:</h6>
+									
+						<h6>Starring</h6>
 						<ul className="casts">
 							{this.state.cast.map((cast, index) =>{
 								return <li id="cast-member" key={index}>{cast.name}</li>;
 							})}
 							
 						</ul>
-
-
-						<a type="button" className="waves-effect waves-light btn trailer-btn" data-toggle="modal" data-target="#myModal">Watch Trailer</a>
-						<a onClick={this.addMovieToPlaylist.bind(this)} className="waves-effect waves-light btn red lighten-1">Add To Playlist</a>
+						
+						{this.state.trailer === null ? '' : <a type="button" className="waves-effect waves-light btn trailer-btn" data-toggle="modal" data-target="#myModal">Watch Trailer</a> }
+						
+						<a onClick={this.addMovieToPlaylist.bind(this)} className={`${this.props.inPlaylist ? "disabled" : ""} " waves-effect waves-light btn red lighten-1`}>Add To Playlist</a>
 
 
 
@@ -128,8 +137,15 @@ class MoviesDetail extends Component {
 
 		function mapStateToProps(state, ownProps){
 
+			const inPlaylist = state.addMovieToPlaylist.map(data=>{
+				if(data.movie.id === parseInt(ownProps.params.id)){
+					return data.inPlaylist
+				}	
+			});
+
+
 			return {
-				id: ownProps.params.id
+				inPlaylist: false
 			}
 		}
 

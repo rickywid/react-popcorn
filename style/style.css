@@ -1,26 +1,60 @@
 /*global*/
+body{
+    background: -webkit-linear-gradient(#263238, white); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#263238, white); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#263238, white); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#263238, white); /* Standard syntax (must be last) */
+}
 
-
-h6 { color: #ee6e73; font-weight: bold; }
+h6 { color: white; font-weight: bold; background-color: #26a69a; padding: 5px; display: inline-block;}
 
 hr { opacity: 0.3; }
 
 input[type=text] { height: 2em; font-size: 4em;}
 .input-field label { font-weight: bold;}
 
+#rating { margin-left: 10px; display: inline-block; }
+
 /*movies-details page*/
-ul > li#cast-member,
-ul > li#release-date,
-ul > li#genre {
+ul.movie-detail-info > li#info {
 	display: inline-block;
-	margin-right: 10px;
+	color: rgb(140, 138, 138);
+	padding-right: 5px;
+	border-right: 1px solid rgb(140, 138, 138);
+	padding-left: 5px;
 }
 
-.movie-detail-title { margin: 0; }
+ul.movie-detail-info > li#info:nth-last-child(2) {
+	border-right: none;
+}
+
+ul.movie-detail-info > li#info:last-child {
+	border-right: none;
+}
+
+ul.casts > li {
+	display: inline-block;
+	margin-right: 5px;
+}
+
+ul.casts{
+	margin-bottom: 50px;
+}
+
+li#cast-member::after {
+	content: ',';
+}
+
+.movie-detail-title { margin: 0; background-color: #546e7a; padding: 15px; margin-bottom: 20px; color: white;}
+
 .movie-detail-card { padding: 25px; }
 .rating{ font-size: 30px; }
 .trailer-btn { margin-right: 10px; }
 
+.chip {
+	background-color: #4fc3f7;
+	color: white;
+}
 /*popular movies page*/
 .popular-movies-col { margin-bottom: 17px; }
 
@@ -32,7 +66,7 @@ ul > li#genre {
 }
 
 .playlist-col { text-align: center; margin-bottom: 30px; }
-.playlist-btn { margin: 6px; }
+.playlist-btn { margin: 4px; }
 
 .modal .modal-content { padding: 0; background-color: black;}
 .modal-open .modal{ overflow-y: hidden; background-color: black; width: 100%;}
@@ -42,8 +76,9 @@ ul > li#genre {
 
 /*index page*/
 span.badge.new:after { 	display: none; }
-.collection a.collection-item { font-size: 85%; }
-.collection .collection-item { padding: 5px 20px;}
+.collection {border: none;}
+.collection a.collection-item { font-size: 100%;  border: 1px solid #2A2F3A}
+.collection .collection-item { padding: 5px 20px; background-color: #313641}
 
 /*search results*/
 img.height-350 {

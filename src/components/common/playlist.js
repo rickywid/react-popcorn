@@ -9,24 +9,22 @@ class Playlist extends Component {
 	constructor(props){
 		super(props);
 
-		this.state=({ id: '' });
-
 		this.renderPlaylist = this.renderPlaylist.bind(this);
 	}
 
 	removeMovieClick(id){
 		
-		this.props.removePlaylistItemSuccess(id)
+		this.props.removePlaylistItemSuccess(id, false)
 		toastr.success('movie removed');
 	}
 
-	renderPlaylist(movie){
-		
+	renderPlaylist(data){
+	
 		return (
 			<div className="col s3 playlist-col">
-		      	<img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" className="responsive-img" />
-		      	<Link to={`/movie/${movie.id}`} className="waves-effect waves-light btn playlist-btn">View</Link>
-		      	<button onClick={()=>{this.removeMovieClick(movie.id)}} className="waves-effect waves-light btn playlist-btn">Remove</button>
+		      	<img src={`https://image.tmdb.org/t/p/w500/${data.movie.poster_path}`} alt="" className="responsive-img" />
+		      	<Link to={`/movie/${data.movie.id}`} className="waves-effect waves-light btn playlist-btn">View</Link>
+		      	<button onClick={()=>{this.removeMovieClick(data.movie.id)}} className="waves-effect waves-light btn playlist-btn">Remove</button>
 		    </div>
 		    
 		)
@@ -51,7 +49,7 @@ class Playlist extends Component {
 		return (
 
 			<div>
-				<h5>Playlist({this.props.playlist.length})</h5>
+				<h6>Playlist({this.props.playlist.length})</h6>
 				{this.displayPlaylist()}
 				
 			</div>
@@ -61,6 +59,7 @@ class Playlist extends Component {
 }
 
 function mapStateToProps(state){
+
 	return ({ playlist: state.addMovieToPlaylist});
 }
 

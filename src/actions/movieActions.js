@@ -41,31 +41,35 @@ export function searchMovies(movie){
 	}
 }
 
-function addMovieToPlaylistSuccess(id){
+function addMovieToPlaylistSuccess(id, inPlaylist){
 	return {
 		type: types.ADD_MOVIE_TO_PLAYLIST,
-		payload: id
+		payload: {
+			movie: id,
+			inPlaylist: inPlaylist
+		}
 	}
 }
 
-export function addMovieToPlaylist(id){
+export function addMovieToPlaylist(id, inPlaylist){ 
 
 	return dispatch => {
 		return axios.get(`${url}movie/${id}?language=en-US&api_key=${api}`).then(movie => {
-			dispatch(addMovieToPlaylistSuccess(movie));
+			dispatch(addMovieToPlaylistSuccess(movie, inPlaylist));
 		}).catch(error => {
 			throw(error);
 		});		
 	}		
 }
 
-export function removePlaylistItemSuccess(id){
+export function removePlaylistItemSuccess(id, inPlaylist){
 	return {
 		type: types.REMOVE_PLAYLIST_ITEM,
-		payload: id
+		payload: {
+			movie: id,
+			inPlaylist: inPlaylist
+		}
 	}
 }
-
-
 
 

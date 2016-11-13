@@ -7,13 +7,13 @@ export default function (state=initialState.playlist, action){
 	switch(action.type){
 
 		case types.ADD_MOVIE_TO_PLAYLIST:
-
-			return [...state, action.payload.data];
+			console.log(state)
+			return [...state, {movie: action.payload.movie.data, inPlaylist: action.payload.inPlaylist }];
 	
 		
 		case types.REMOVE_PLAYLIST_ITEM :
-	
-			return	state.filter(movie => movie.id !== action.payload );
+
+			return	state.filter(movie =>  movie.movie.id !== action.payload.movie );
 			
 
 		}

@@ -3,5 +3,5 @@ export default {
 	topRatedMovies: [],
 	upcomingMovies: [],
 	searchMovies: { results: [], length: null },
-	playlist: []
+	playlist:  []  
 }

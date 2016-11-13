@@ -29,8 +29,6 @@ class Index extends Component {
 	}	
 
 	render(){
-		console.log(this.props.upcomingMovies)
-		console.log(this.props.topRatedMovies)
 		return (
 		
 		<div>			  

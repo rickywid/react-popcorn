@@ -4,6 +4,8 @@ body{
     background: -o-linear-gradient(#263238, white); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(#263238, white); /* For Firefox 3.6 to 15 */
     background: linear-gradient(#263238, white); /* Standard syntax (must be last) */
+    height: 100vh;
+    background-attachment: fixed;
 }
 
 h6 { color: white; font-weight: bold; background-color: #26a69a; padding: 5px; display: inline-block;}

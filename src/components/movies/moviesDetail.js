@@ -123,7 +123,7 @@ class MoviesDetail extends Component {
 						<div className="modal fade" id="myModal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
 						  <div className="modal-dialog" role="document">
 						    <div className="modal-content">
-						      <iframe width="640" height="360" src={`https://www.youtube.com/embed/${this.state.trailer}?autoplay=0`} frameBorder="0" allowFullScreen></iframe>
+						      <iframe width="640" height="360" src={`https://www.youtube.com/embed/${this.state.trailer}?autoplay=0&fs=0`} frameBorder="0" allowFullScreen></iframe>
 						    </div>
 						  </div>
 						</div>					

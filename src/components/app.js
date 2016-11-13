@@ -19,7 +19,14 @@ class App extends Component {
 
 		{this.props.children}
 
-
+        <footer className="page-footer">
+          <div className="footer-copyright">
+            <div className="container">
+            © 2016 React-Popcorn
+            <a className="grey-text text-lighten-4 right" href="https://github.com/rickywid/react-popcorn">View Source</a>
+            </div>
+          </div>
+        </footer>
     </div>  
 
     );

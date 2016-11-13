@@ -8,11 +8,13 @@ body{
     background-attachment: fixed;
 }
 
+a:hover { text-decoration: none; }
+
 h6 { color: white; font-weight: bold; background-color: #26a69a; padding: 5px; display: inline-block;}
 
-hr { opacity: 0.3; }
+hr { margin-bottom: -14px; border: none; }
 
-input[type=text] { height: 2em; font-size: 4em;}
+input[type=text] { height: 2em; font-size: 4em; color: white}
 .input-field label { font-weight: bold;}
 
 #rating { margin-left: 10px; display: inline-block; }
@@ -59,6 +61,8 @@ li#cast-member::after {
 }
 /*popular movies page*/
 .popular-movies-col { margin-bottom: 17px; }
+#pop-h6 { margin: 20px.75em;}
+.pop-bg { background-color:  rgb(23, 23, 23); height: 1499px;}
 
 /*Playlist page*/
 .icon-vertical-align {
@@ -79,10 +83,27 @@ li#cast-member::after {
 /*index page*/
 span.badge.new:after { 	display: none; }
 .collection {border: none;}
-.collection a.collection-item { font-size: 100%;  border: 1px solid #2A2F3A}
-.collection .collection-item { padding: 5px 20px; background-color: #313641}
+.collection a.collection-item { font-size: 100%; }
+.collection .collection-item { padding: 5px 20px; background-color: #313641; border-bottom: 1px solid #494D56;}
+.toprated-bg { background-color: #313641}
+.h6-index { margin-left: 20px; margin-top: 20px;}
+
 
 /*search results*/
 img.height-350 {
 	height: 350px;
 }
+
+#search-results {
+	display: block;
+	background-color: transparent;
+}
+
+/*nav*/
+nav { background-color: #26A69A}
+nav .brand-logo {margin-left: 20px;}
+nav ul a { font-weight: bold; }
+nav ul a:visited { color: white; font-weight: bold; text-decoration: none;}
+
+/*footer*/
+footer.page-footer { margin-top: 0; padding-top: 0; background-color: #26A69A; }

@@ -21,7 +21,7 @@ class PopularMovies extends Component {
 
 
 				<div>
-					<h6>Popular Movies</h6>
+					<h6 id="pop-h6">Popular Movies</h6>
 					<hr/>
 					{this.props.popularMovies.map(this.renderPopularList)}
 					

@@ -33,7 +33,7 @@ class SearchResults extends Component {
 		return (
 
 			<div className="row">
-					<h6>{this.searchNumLength()} found for <i>"{this.props.params.name}"</i></h6>
+					<h6 id="search-results">{this.searchNumLength()} found for <i>"{this.props.params.name}"</i></h6>
 					{this.props.searchResults.results.map(this.renderSearchResults)}
 					{/*this.props.searchResults.results.map(data=> <li>{data.title}</li>)*/}
 			</div>

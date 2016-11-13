@@ -21,7 +21,7 @@ class Index extends Component {
 	}
 
 	renderTopRatedList(movie){
-		return movie.map( data=><Link to={`/movie/${data.id}`} className="collection-item"><span className="new badge">{data.vote_average}</span>{data.title}</Link>)
+		return movie.map( data=><Link to={`/movie/${data.id}`} className="collection-item toprated-border"><span className="new badge">{data.vote_average}</span>{data.title}</Link>)
 	}
 
 	renderUpcomingList(movie){
@@ -33,20 +33,20 @@ class Index extends Component {
 		
 		<div>			  
 			<div className="row">
-				<div className="col s3">
-					<h6>Top Rated</h6>
+				<div className="col s3 toprated-bg">
+					<h6 className="h6-index">Top Rated</h6>
 					<div className="collection">
 						{this.props.topRatedMovies.map(this.renderTopRatedList)}
 					</div>				
 
-					<h6>Upcoming</h6>
+					<h6 className="h6-index">Upcoming</h6>
 
 					<div className="collection">
 						{this.props.upcomingMovies.map(this.renderUpcomingList)}
 					</div>	
 
 				</div>
-				<div className="col s9">
+				<div className="col s9 pop-bg">
 					<PopularMovies popularMovies={this.props.popularMovies}/>
 				</div>
 				

@@ -85,7 +85,7 @@ class MoviesDetail extends Component {
 					<img className="responsive-img" src={this.state.poster} />
 				</div>
 
-				<div className="col s8 grey lighten-3 z-depth-4">
+				<div className="col s8 grey lighten-3">
 					<div className="movie-detail-card">
 						<h4 className="movie-detail-title">{this.state.title}</h4>
 						<ul className="movie-detail-info">

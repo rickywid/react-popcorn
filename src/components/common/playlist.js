@@ -24,7 +24,7 @@ class Playlist extends Component {
 			<div className="col s3 playlist-col">
 		      	<img src={`https://image.tmdb.org/t/p/w500/${data.movie.poster_path}`} alt="" className="responsive-img" />
 		      	<Link to={`/movie/${data.movie.id}`} className="waves-effect waves-light btn playlist-btn">View</Link>
-		      	<button onClick={()=>{this.removeMovieClick(data.movie.id)}} className="waves-effect waves-light btn playlist-btn">Remove</button>
+		      	<button onClick={()=>{this.removeMovieClick(data.movie.id)}} className="waves-effect waves-light btn playlist-btn red lighten-1">Remove</button>
 		    </div>
 		    
 		)

@@ -23,7 +23,7 @@ class App extends Component {
           <div className="footer-copyright">
             <div className="container">
             © 2016 React-Popcorn
-            <a className="grey-text text-lighten-4 right" href="https://github.com/rickywid/react-popcorn">View Source</a>
+            <a className="grey-text text-lighten-4 right" target="_blank" href="https://github.com/rickywid/react-popcorn">View Source</a>
             </div>
           </div>
         </footer>

@@ -34,8 +34,7 @@
           <form className="col s12" onSubmit={this.onSubmit.bind(this)}>
             <div className="row">
               <div className="input-field col s12">
-                <input id="icon_prefix" type="text" className="validate" value={this.state.input} onChange={this.onChangeHandler.bind(this)} />
-                <label htmlFor="icon_prefix">Search</label>
+                <input id="icon_prefix" type="text" className="validate" value={this.state.input} onChange={this.onChangeHandler.bind(this)} placeholder="search movie..."/>
               </div>
             </div>
           </form>

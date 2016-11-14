@@ -34,11 +34,13 @@ class Playlist extends Component {
 
 		if(!this.props.playlist.length){
 			return (
-				<p>Oop...Your playlist is currently empty</p>
+				<div className="col s12">
+					<h4 className="no-playlist">Oops...Your playlist is currently <span id="empty">empty</span></h4>
+				</div>
 			)
 		} else {
 			return (
-				<div className="row">
+				<div className="col s12">
 					{this.props.playlist.map(this.renderPlaylist)}
 				</div>	
 			)
@@ -48,8 +50,11 @@ class Playlist extends Component {
 	render(){
 		return (
 
-			<div>
-				<h6>Playlist({this.props.playlist.length})</h6>
+			<div className="row row-playlist">
+				<div className="col s12">
+					<h6>Playlist({this.props.playlist.length})</h6>
+				</div>
+				
 				{this.displayPlaylist()}
 				
 			</div>

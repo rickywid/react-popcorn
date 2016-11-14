@@ -32,7 +32,7 @@ class Index extends Component {
 		return (
 		
 		<div>			  
-			<div className="row">
+			<div className="row index-row">
 				<div className="col s3 toprated-bg">
 					<h6 className="h6-index">Top Rated</h6>
 					<div className="collection">

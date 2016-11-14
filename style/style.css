@@ -8,13 +8,36 @@ body{
     background-attachment: fixed;
 }
 
+.row {
+	margin-bottom: 0;
+	background-color: rgb(23, 23, 23);
+}
+
+.input-field {
+	background-color: rgb(23, 23, 23);
+	margin-top: 0;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: white; opacity: 0.5; font-style: italic; font-size: 50%;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: white; opacity: 0.5; font-style: italic; font-size: 50%
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: white; opacity: 0.5; font-style: italic; font-size: 50%
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: white; opacity: 0.5; font-style: italic; font-size: 50%
+}
+
 a:hover { text-decoration: none; }
 
 h6 { color: white; font-weight: bold; background-color: #26a69a; padding: 5px; display: inline-block;}
 
 hr { margin-bottom: -14px; border: none; }
 
-input[type=text] { height: 2em; font-size: 4em; color: white}
+input[type=text] { height: 2em; font-size: 4em; color: white; padding: 0 10px;}
 .input-field label { font-weight: bold;}
 
 #rating { margin-left: 10px; display: inline-block; }
@@ -59,7 +82,17 @@ li#cast-member::after {
 	background-color: #4fc3f7;
 	color: white;
 }
+
+img {
+	margin-bottom: 16px;
+}
 /*popular movies page*/
+.img-hover:hover{
+    -webkit-filter: sepia(1);
+  filter: sepia(1);
+
+}
+
 .popular-movies-col { margin-bottom: 17px; }
 #pop-h6 { margin: 20px.75em;}
 .pop-bg { background-color:  rgb(23, 23, 23); height: 1499px;}
@@ -70,10 +103,11 @@ li#cast-member::after {
 	color: #f4ff81 ;
 	margin-left: 10px;
 }
-
+#empty { text-decoration: underline; font-style: italic;}
+.no-playlist { color: white; text-align: center;}
 .playlist-col { text-align: center; margin-bottom: 30px; }
 .playlist-btn { margin: 4px; }
-
+.row-playlist { height: 100vh; }
 .modal .modal-content { padding: 0; background-color: black;}
 .modal-open .modal{ overflow-y: hidden; background-color: black; width: 100%;}
 .modal-dialog {width: 640px;}
@@ -87,7 +121,7 @@ span.badge.new:after { 	display: none; }
 .collection .collection-item { padding: 5px 20px; background-color: #313641; border-bottom: 1px solid #494D56;}
 .toprated-bg { background-color: #313641}
 .h6-index { margin-left: 20px; margin-top: 20px;}
-
+.index-row { background-color: rgb(23, 23, 23)}
 
 /*search results*/
 img.height-350 {
@@ -100,10 +134,16 @@ img.height-350 {
 }
 
 /*nav*/
-nav { background-color: #26A69A}
+nav { background-color: #26A69A; width: 102%; margin-left: -0.75em;}
 nav .brand-logo {margin-left: 20px;}
 nav ul a { font-weight: bold; }
 nav ul a:visited { color: white; font-weight: bold; text-decoration: none;}
 
 /*footer*/
-footer.page-footer { margin-top: 0; padding-top: 0; background-color: #26A69A; }
+footer.page-footer { 
+	margin-top: 0; 
+	padding-top: 0; 
+	background-color: #26A69A; 
+	margin-left: -0.77em;
+	width: 102.3%
+}

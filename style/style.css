@@ -107,7 +107,7 @@ img {
 #empty { text-decoration: underline; font-style: italic;}
 .no-playlist { color: white; text-align: center;}
 .playlist-col { text-align: center; margin-bottom: 30px; }
-.playlist-btn { margin: 4px; font-size: 11px; }
+.playlist-btn {padding: 0px 22px;margin: 0 5px;font-size: 11px;}
 .row-playlist { height: 100vh; }
 .modal .modal-content { padding: 0; background-color: black;}
 .modal-open .modal{ overflow-y: hidden; background-color: black; width: 100%;}

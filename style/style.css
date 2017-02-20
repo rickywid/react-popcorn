@@ -73,7 +73,7 @@ li#cast-member::after {
 	content: ',';
 }
 
-.movie-detail-title { font-size: 60px; color: white;}
+.movie-detail-title { font-size: 48px; color: white;}
 
 .movie-detail-card { padding: 25px; }
 .rating{ font-size: 30px; }

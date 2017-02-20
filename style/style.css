@@ -6,6 +6,7 @@ body{
     background: linear-gradient(#263238, white); /* Standard syntax (must be last) */
     height: 100vh;
     background-attachment: fixed;
+    font-family: 'Raleway', sans-serif;
 }
 
 .row {

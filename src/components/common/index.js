@@ -29,6 +29,7 @@ class Index extends Component {
 	}	
 
 	render(){
+
 		return (
 		
 		<div>			  

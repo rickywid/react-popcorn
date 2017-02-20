@@ -73,7 +73,7 @@ li#cast-member::after {
 	content: ',';
 }
 
-.movie-detail-title { margin: 0; background-color: #546e7a; padding: 15px; margin-bottom: 20px; color: white;}
+.movie-detail-title { font-size: 60px; color: white;}
 
 .movie-detail-card { padding: 25px; }
 .rating{ font-size: 30px; }
